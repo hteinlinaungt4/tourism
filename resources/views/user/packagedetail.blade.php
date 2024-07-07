@@ -3,7 +3,7 @@
 @section('title', 'Home')
 @section('content')
     <div class="banner-3">
-        <div class="container">
+        <div class="container-fluid">
             <h1 class="wow zoomIn animated animated" data-wow-delay=".5s"
                 style="visibility: visible; animation-delay: 0.5s; animation-name: zoomIn;"> TMS -Package Details</h1>
         </div>
@@ -14,7 +14,9 @@
         <div class="container">
 
 
-            <form name="book" method="post">
+            <form action="{{route('book.store')}}" name="book" method="post">
+                @csrf
+                <input type="hidden" name="package_id" value="{{$package->id}}">
                 <div class="selectroom_top">
                     <div class="col-md-4 selectroom_left wow fadeInLeft animated" data-wow-delay=".5s">
                         <img src="{{ asset('storage/packages/' . $package->image) }}" class="img-responsive" alt="">
@@ -68,7 +70,7 @@
                             </li>
 
                             <li class="spe">
-                                <button type="submit" name="submit2" class="btn-primary btn">Book</button>
+                                <button type="submit"  class="btn-primary btn">Book</button>
                             </li>
 
                             <div class="clearfix"></div>

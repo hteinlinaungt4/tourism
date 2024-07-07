@@ -70,9 +70,9 @@
 
             <!-- Nav Item - Tables -->
             <li class="nav-item">
-                <a class="nav-link" href="" >
-                    <i class="fas fa-car"></i>
-                    <span>Vehicle</span></a>
+                <a class="nav-link" href="{{route('book.index')}}" >
+                    <i class="fas fa-book"></i>
+                    <span>Booking</span></a>
             </li>
 
              <!-- Nav Item - Tables -->
@@ -80,22 +80,22 @@
                 <a class="nav-link"  href="">
                     <i class="fa-solid fa-book"></i>
                     <span>Booking Lists</span></a>
-            </li>
+            </li> --}}
 
-            <li class="nav-item">
+            {{-- <li class="nav-item">
                 <a class="nav-link" href="" >
                     <i class="fas fa-users"></i>
                     <span>Admin Lists</span>
                  </a>
-            </li>
+            </li> --}}
 
             <li class="nav-item">
-                <a class="nav-link" href="" >
+                <a class="nav-link" href="{{route('user.list')}}" >
                     <i class="fas fa-users"></i>
                     <span>Users Lists</span>
                  </a>
             </li>
-
+{{--
             <li class="nav-item">
                 <a class="nav-link" href="" >
                     <i class="fa fa-envelope"></i>

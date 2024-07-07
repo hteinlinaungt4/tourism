@@ -142,7 +142,7 @@ class PackageController extends Controller
 
 
     public function detail($id){
-        $package = Package::findorFail($id)->first();
+        $package = Package::where('id',$id)->first();
         return view('user.packagedetail',compact('package'));
     }
 

@@ -74,7 +74,7 @@
                     </div>
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
-                        <nav class="cl-effect-1">
+                        <nav class="cl-effect-1 ">
                             <ul class="nav navbar-nav">
                                 <li><a href="index.php">Home</a></li>
                                 <li><a href="page.php?type=aboutus">About</a></li>
@@ -93,7 +93,7 @@
                                             aria-expanded="false"><i class="fa fa-user-circle" aria-hidden="true"></i>
                                             {{ Auth::user()->name }}
                                             <i class="fa fa-angle-down" aria-hidden="true"></i></a>
-                                        <ul class="dropdown-menu">
+                                        <ul class="dropdown-menu" style="z-index: 9999!important;">
                                             <li><a href="">Profile Settings</a></li>
                                             <li><a href="">Update Password</a></li>
                                             <li><a href="">My Booking</a></li>
@@ -111,12 +111,11 @@
                                         </ul>
                                     </li>
                                 @endif
-
-
-
                             </ul>
                         </nav>
+
                     </div><!-- /.navbar-collapse -->
+
                 </nav>
             </div>
 

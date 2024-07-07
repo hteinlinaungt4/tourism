@@ -3,12 +3,13 @@
 namespace App\Http\Controllers;
 
 use Log;
+use App\Models\Book;
 use App\Models\Package;
+use Illuminate\Log\Logger;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\User;
-use Illuminate\Log\Logger;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -37,37 +38,21 @@ class UserController extends Controller
         return view('user.myprofile',);
     }
 
-
+    public function book($id){
+       $books=Book::where('user_id',$id)->with('user','package')->get();
+       return view('admin.userbook.index',compact('books'));
+    }
 
 
     public function userlist(){
-        return view('admin.userlist.index');
+        $users = User::where('role','user')->get();
+        return view('admin.userlist.userlist',compact('users'));
     }
 
 
-    public function ssd(){
-        $user=User::where('role','user');
-        return DataTables::of($user)
-        ->addColumn('actions', function($each) {
-            return '<button class="btn btn-success role-btn" data-id="' . $each->id . '" >Change to Admin</button>';
-        })
-        ->rawColumns(['actions'])
-        ->make(true);
-    }
 
-    public function usertoadmin(Request $request,$userId){
 
-        $user = User::findOrFail($userId);
 
-        // Update the user's role based on the role data sent via AJAX request
-        $user->role = $request->role; // Assuming the role data is sent in the request
-
-        // Save the updated user
-        $user->save();
-
-        // Return a success response
-        return response()->json(['message' => 'User role changed successfully']);
-    }
 
 
 

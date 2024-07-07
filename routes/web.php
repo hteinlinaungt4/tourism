@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\BookController;
 use App\Http\Controllers\PackageController;
 
 /*
@@ -31,6 +32,19 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])
          //package
          Route::resource('package',PackageController::class);
          Route::get('ssd/package',[PackageController::class,'ssd']);
+
+
+         Route::resource('book',BookController::class);
+         Route::get('ssd/book',[BookController::class,'ssd']);
+
+         Route::post('book/{id}/pending', [BookController::class, 'pending'])->name('book.pending');
+         Route::post('book/{id}/confirm', [BookController::class, 'confirm'])->name('book.confirm');
+         Route::post('book/{id}/cancel', [BookController::class, 'cancel'])->name('book.cancel');
+
+         Route::get('userlist',[UserController::class,'userlist'])->name('user.list');
+         Route::get('userbook/{id}',[UserController::class,'book'])->name('user.book');
+
+
 
     });
     Route::middleware(['user_auth'])->group(function(){
