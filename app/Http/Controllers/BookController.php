@@ -101,9 +101,20 @@ class BookController extends Controller
         })
         ->addColumn('actions', function ($book) {
             $pending = '<button data-id="' . $book->id . '" class="btn btn-warning btn-sm pending">Pending</button>';
-            $confirm = '<button data-id="' . $book->id . '" class="btn btn-success btn-sm confirm">Confirm</button>';
+            $confirm =  '<button data-id="' . $book->id . '" class="btn btn-success btn-sm confirm">Confirm</button>';
             $cancel = '<button data-id="' . $book->id . '" class="btn btn-danger btn-sm cancel">Cancel</button>';
-            return $pending . ' ' . $confirm . ' ' . $cancel;
+
+
+            $confirmed =  '<button data-id="' . $book->id . '" class="btn btn-dark btn-sm confirm" disabled>Confirmed</button>';
+            $canceled = '<button data-id="' . $book->id . '" class="btn btn-dark btn-sm cancel" disabled>Canceled</button>';
+            switch ($book->status) {
+                case '0':
+                    return $canceled;
+                case '2':
+                    return $confirmed;
+                default:
+                    return $pending . ' ' . $confirm . ' ' . $cancel;
+            }
         })
         ->rawColumns(['actions'])
         ->make(true);

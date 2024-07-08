@@ -10,7 +10,7 @@
         <p><b>Features</b> {{$p->features}}</p>
     </div>
     <div class="col-md-3 room-right wow fadeInRight animated" data-wow-delay=".5s">
-        <h5>USD {{$p->price}}</h5>
+        <h5>{{$p->price}} MMK</h5>
         <a href="{{route('package.detail.list',$p->id)}}" class="view">Details</a>
     </div>
     <div class="clearfix"></div>

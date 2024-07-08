@@ -3,8 +3,8 @@
 @section('title', 'Home')
 @section('content')
     <div class="banner-3">
-        <div class="container-fluid">
-            <h1 class="wow zoomIn animated animated" data-wow-delay=".5s"
+        <div class="container-fluid " style="z-index: 0!important;">
+            <h1 style="z-index: 0!important;" class="wow zoomIn animated animated" data-wow-delay=".5s"
                 style="visibility: visible; animation-delay: 0.5s; animation-name: zoomIn;"> TMS -Package Details</h1>
         </div>
     </div>
@@ -49,7 +49,7 @@
                         <div class="clearfix"></div>
                         <div class="grand">
                             <p>Grand Total</p>
-                            <h3>USD.{{ $package->price }}</h3>
+                            <h3>{{ $package->price }} MMK</h3>
                         </div>
                         <h3>Package Details</h3>
                         <p style="padding-top: 2%">{{ $package->details }}</p>
