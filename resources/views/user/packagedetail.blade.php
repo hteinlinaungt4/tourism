@@ -4,8 +4,7 @@
 @section('content')
     <div class="banner-3">
         <div class="container-fluid " style="z-index: 0!important;">
-            <h1 style="z-index: 0!important;" class="wow zoomIn animated animated" data-wow-delay=".5s"
-                style="visibility: visible; animation-delay: 0.5s; animation-name: zoomIn;"> TMS -Package Details</h1>
+
         </div>
     </div>
     <!--- /banner ---->
@@ -18,8 +17,58 @@
                 @csrf
                 <input type="hidden" name="package_id" value="{{$package->id}}">
                 <div class="selectroom_top">
-                    <div class="col-md-4 selectroom_left wow fadeInLeft animated" data-wow-delay=".5s">
+                    {{-- <div class="col-md-4 selectroom_left wow fadeInLeft animated" data-wow-delay=".5s">
                         <img src="{{ asset('storage/packages/' . $package->image) }}" class="img-responsive" alt="">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <img src="{{ asset('storage/packages/' . $package->image) }}" class="img-responsive" alt="">
+                            </div>
+                            <div class="col-md-6">
+                                <img src="{{ asset('storage/packages/' . $package->image) }}" class="img-responsive" alt="">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <img src="{{ asset('storage/packages/' . $package->image) }}" class="img-responsive" alt="">
+                            </div>
+                            <div class="col-md-6">
+                                <img src="{{ asset('storage/packages/' . $package->image) }}" class="img-responsive" alt="">
+                            </div>
+                        </div>
+                    </div> --}}
+                    <div class="col-md-4">
+                        <div>
+                            <img src="{{ asset('storage/packages/' . $package->image1) }}" class="img-responsive" alt="">
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-sm-6 col-6">
+                                <div>
+                                    <img src="{{ asset('storage/packages/' . $package->image2) }}" class="img-responsive" alt="">
+                                </div>
+                                <br>
+                            </div>
+                            <div class="col-sm-6 col-6">
+                                <div>
+                                    <img src="{{ asset('storage/packages/' . $package->image3) }}" class="img-responsive" alt="">
+                                </div>
+                                <br>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6 col-6">
+                                <div>
+                                    <img src="{{ asset('storage/packages/' . $package->image4) }}" class="img-responsive" alt="">
+                                </div>
+                                <br>
+                            </div>
+                            <div class="col-sm-6 col-6">
+                                <div>
+                                    <img src="{{ asset('storage/packages/' . $package->image5) }}" class="img-responsive" alt="">
+                                </div>
+                                <br>
+                            </div>
+                        </div>
                     </div>
                     <div class="col-md-8 selectroom_right wow fadeInRight animated" data-wow-delay=".5s">
                         <h2>{{ $package->name }}</h2>

@@ -21,6 +21,12 @@
     <script src="{{ asset('user/js/wow.min.js') }}"></script>
     <script src="{{ asset('user/js/jquery-ui.js') }}"></script>
     <style>
+        .centered-div {
+            display: flex;
+            justify-content: center; /* Centers horizontally */
+            align-items: center;    /* Centers vertically */
+            min-height: 77vh;
+        }
         .dropdown-menu {
             background-color: green;
             z-index: 9999 !important;
@@ -49,12 +55,10 @@
 
 
     <div class="header">
-        <div class="container">
+        <div class="container ">
             <div class="logo wow fadeInDown animated" data-wow-delay=".5s">
                 <a href="{{ route('user.dashboard') }}">Tourism <span>Management System</span></a>
             </div>
-
-
         </div>
     </div>
     <!--- /header ---->
@@ -77,8 +81,10 @@
                     <div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
                         <nav class="cl-effect-1 ">
                             <ul class="nav navbar-nav">
-                                <li><a href="index.php">Home</a></li>
-                                <li><a href="page.php?type=aboutus">About</a></li>
+                                <li><a href="{{ route('user.dashboard') }}">Home</a></li>
+                                <li><a href="{{ route('about') }}">About</a></li>
+                                <li><a href="{{ route('enquiry') }}">Enquiry</a></li>
+                                <li><a href="{{ route('contact') }}">Contact</a></li>
                                 @if (!Auth::check())
                                     <li> <a href="{{ route('login') }}" aria-haspopup="true" aria-expanded="false"><i
                                                 class="fa fa-user-circle" aria-hidden="true"></i> Login
@@ -95,11 +101,7 @@
                                             {{ Auth::user()->name }}
                                             <i class="fa fa-angle-down" aria-hidden="true"></i></a>
                                         <ul class="dropdown-menu" style="z-index: 9999!important;">
-                                            <li><a href="">Profile Settings</a></li>
-                                            <li><a href="">Update Password</a></li>
-                                            <li><a href="">My Booking</a></li>
-                                            <li><a href="">Post a Testimonial</a></li>
-                                            <li><a href="">My Testimonial</a></li>
+                                            <li><a href="{{route('userpassword#changepage')}}">Update Password</a></li>
                                             <li>
                                                 <form method="POST" action="{{ route('logout') }}">
                                                     @csrf
@@ -126,40 +128,27 @@
 
     @yield('content')
 
-    <!--- routes ---->
-    <div class="routes">
+
+
+
+
+    <!--- /footer-top ---->
+    <!---copy-right ---->
+    <div class="copy-right">
         <div class="container">
-            <div class="col-md-4 routes-left wow fadeInRight animated" data-wow-delay=".5s">
-                <div class="rou-left">
-                    <a href="#"><i class="glyphicon glyphicon-list-alt"></i></a>
-                </div>
-                <div class="rou-rgt wow fadeInDown animated" data-wow-delay=".5s">
-                    <h3>80000</h3>
-                    <p>Enquiries</p>
-                </div>
-                <div class="clearfix"></div>
+
+            <div class="footer-social-icons wow fadeInDown animated animated" data-wow-delay=".5s"
+                style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInDown;">
+                <ul>
+                    <li><a class="facebook" href="#"><span>Facebook</span></a></li>
+                    <li><a class="twitter" href="#"><span>Twitter</span></a></li>
+                    <li><a class="flickr" href="#"><span>Flickr</span></a></li>
+                    <li><a class="googleplus" href="#"><span>Google+</span></a></li>
+                    <li><a class="dribbble" href="#"><span>Dribbble</span></a></li>
+                </ul>
             </div>
-            <div class="col-md-4 routes-left">
-                <div class="rou-left">
-                    <a href="#"><i class="fa fa-user"></i></a>
-                </div>
-                <div class="rou-rgt">
-                    <h3>1900</h3>
-                    <p>Registered users</p>
-                </div>
-                <div class="clearfix"></div>
-            </div>
-            <div class="col-md-4 routes-left wow fadeInRight animated" data-wow-delay=".5s">
-                <div class="rou-left">
-                    <a href="#"><i class="fa fa-ticket"></i></a>
-                </div>
-                <div class="rou-rgt">
-                    <h3>7,00,00,000+</h3>
-                    <p>Booking</p>
-                </div>
-                <div class="clearfix"></div>
-            </div>
-            <div class="clearfix"></div>
+            <p class="wow zoomIn animated animated" data-wow-delay=".5s"
+                style="visibility: visible; animation-delay: 0.5s; animation-name: zoomIn;"> All Rights Reserved </p>
         </div>
     </div>
 

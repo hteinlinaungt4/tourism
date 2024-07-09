@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\EnquiryController;
 use App\Http\Controllers\PackageController;
 
 /*
@@ -45,14 +46,33 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])
          Route::get('userbook/{id}',[UserController::class,'book'])->name('user.book');
 
 
+        //password
+        Route::prefix('adminpassword')->group(function(){
+            Route::get('changepage',[AdminController::class,'changepasswordpage'])->name('adminpassword#changepage');
+            Route::post('change',[AdminController::class,'changepassword'])->name('adminpassword#change');
+        });
+
+
 
     });
     Route::middleware(['user_auth'])->group(function(){
         Route::get('detail/{id}',[PackageController::class,'detail'])->name('package.detail.list');
+        Route::prefix('userpassword')->group(function(){
+            Route::get('changepage',[UserController::class,'changepasswordpage'])->name('userpassword#changepage');
+            Route::post('change',[UserController::class,'changepassword'])->name('userpassword#change');
+        });
     });
 });
 
 
 // public
 Route::get('user/dashboard',[UserController::class,'index'])->name('user.dashboard');
+Route::get('enquiry',[EnquiryController::class,'index'])->name('enquiry');
+Route::post('enquiry',[EnquiryController::class,'store'])->name('enquiry.store');
+Route::get('about',[UserController::class,'about'])->name('about');
+Route::get('contact',[UserController::class,'contact'])->name('contact');
+
+
+
+
 

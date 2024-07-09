@@ -1,7 +1,7 @@
 @foreach ($package as $p)
 <div class="rom-btm">
     <div class="col-md-3 room-left wow fadeInLeft animated" data-wow-delay=".5s">
-        <img src="{{asset('storage/packages/'.$p->image)}}" class="img-responsive" alt="">
+        <img src="{{asset('storage/packages/'.$p->image1)}}" class="img-responsive" alt="">
     </div>
     <div class="col-md-6 room-midle wow fadeInUp animated" data-wow-delay=".5s">
         <h4>Package Name: {{$p->name}}</h4>

@@ -39,16 +39,37 @@ class PackageController extends Controller
             'features' => 'required',
             'details' => 'required',
             'packageType' => 'required',
-            'image' => 'required|mimes:jpg,jpeg,png|file',
+            'image1' => 'required|mimes:jpg,jpeg,png|file',
+            'image2' => 'required|mimes:jpg,jpeg,png|file',
+            'image3' => 'required|mimes:jpg,jpeg,png|file',
+            'image4' => 'required|mimes:jpg,jpeg,png|file',
+            'image5' => 'required|mimes:jpg,jpeg,png|file',
+
+
         ];
         Validator::make($request->all(),$validation)->validate();
 
-        if($request->hasFile('image')){
-            $filename =uniqid().'_'.$request->file('image')->getClientOriginalName();
-            $request->file('image')->storeAs('public/packages',$filename);
+        $package = new Package();
+
+
+
+        $images = [];
+        for ($i = 1; $i <= 5; $i++) {
+            if ($request->hasFile('image' . $i)) {
+                // Delete the old image if a new one is uploaded
+                if ($package->{'image' . $i}) {
+                    Storage::delete('public/packages/' . $package->{'image' . $i});
+                }
+
+                $file = $request->file('image' . $i);
+                $filename = uniqid() . '_' . $file->getClientOriginalName();
+                $file->storeAs('public/packages', $filename);
+                $images['image' . $i] = $filename;
+            } else {
+                $images['image' . $i] = $package->{'image' . $i};  // Preserve the existing image if no new image is uploaded
+            }
         }
 
-        $package = new Package();
         $package->name = $request->name;
         $package->packageType = $request->packageType;
         $package->location = $request->location;
@@ -56,7 +77,11 @@ class PackageController extends Controller
         $package->features = $request->features;
         $package->details = $request->details;
         $package->packageType = $request->packageType;
-        $package->image = $filename;
+        $package->image1 = $images['image1'];
+        $package->image2 = $images['image2'];
+        $package->image3 = $images['image3'];
+        $package->image4 = $images['image4'];
+        $package->image5 = $images['image5'];
         $package->save();
 
         return redirect()->route('package.index')->with(['successmsg' => 'You are Created Successfully!']);
@@ -86,16 +111,28 @@ class PackageController extends Controller
     public function update(Request $request, string $id)
     {
         $package=Package::findorFail($id);
+        $images = [];
+        for ($i = 1; $i <= 5; $i++) {
+            if ($request->hasFile('image' . $i)) {
+                // Delete the old image if a new one is uploaded
+                if ($package->{'image' . $i}) {
+                    Storage::delete('public/packages/' . $package->{'image' . $i});
+                }
 
-        if($request->hasFile('image')){
-            $oldimage=$package->image;
-            if($oldimage != null){
-                Storage::delete('public/packages/'.$oldimage);
+                $file = $request->file('image' . $i);
+                $filename = uniqid() . '_' . $file->getClientOriginalName();
+                $file->storeAs('public/packages', $filename);
+                $images['image' . $i] = $filename;
+            } else {
+                $images['image' . $i] = $package->{'image' . $i};  // Preserve the existing image if no new image is uploaded
             }
-            $filename =uniqid().'_'.$request->file('image')->getClientOriginalName();
-            $request->file('image')->storeAs('public/packages',$filename);
-            $package->image = $filename;
         }
+
+        $package->image1 = $images['image1'];
+        $package->image2 = $images['image2'];
+        $package->image3 = $images['image3'];
+        $package->image4 = $images['image4'];
+        $package->image5 = $images['image5'];
 
         $package->name = $request->name;
         $package->packageType = $request->packageType;

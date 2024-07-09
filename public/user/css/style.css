@@ -135,7 +135,7 @@ i.fa.fa-lock {
 /*-- /header --*/
 /*-- banner --*/
 .banner {
-    background: url(../images/new.jpg)no-repeat;
+    background: url(../images/mo.jpg)no-repeat;
     background-size: cover;
     background-position: center center;
     -webkit-background-size: cover;
@@ -447,7 +447,7 @@ i.fa.fa-truck,i.fa.fa-user,i.fa.fa-ticket {
 /*-- /footer --*/
 /*-- bus --*/
 .banner-1 {
-    background: url(../images/3.jpg)no-repeat;
+    background: url(../images/enq.png)no-repeat;
     background-size: cover;
     -webkit-background-size: cover;
     -o-background-size: cover;
@@ -775,7 +775,7 @@ i.fa.fa-gift{
     min-height: 430px;
 }
 .banner-3 {
-    background: url(../images/6.jpg)no-repeat;
+    background: url(../images/fix.png)no-repeat;
     background-size: cover;
     -webkit-background-size: cover;
     -o-background-size: cover;

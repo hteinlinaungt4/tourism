@@ -6,7 +6,7 @@
         <h2>Package</h2>
     </div>
     <div class="card-body">
-        <form action="{{route('package.update',$package->id)}}" class="w-50 mx-auto" method="POST">
+        <form action="{{route('package.update',$package->id)}}" class="w-50 mx-auto" method="POST" enctype="multipart/form-data">
             @method('PUT')
             @csrf
             <div class="form-group">
@@ -52,11 +52,55 @@
                     <div class="invalid-feedback">{{$message}}</div>
                 @enderror
             </div>
-            <img src="{{asset('storage/packages/'.$package->image)}}" width="150px" height="150px" alt="">
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="{{asset('storage/packages/'.$package->image1)}}" class=" object-cover" width="130px" height="130px"  alt="">
+                    <div class="form-group">
+                        <label for="">Image</label>
+                        <input type="file" class="form-control @error('image1') is-invalid @enderror" name="image1" >
+                        @error ('image1')
+                            <div class="invalid-feedback">{{$message}}</div>
+                        @enderror
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <img src="{{asset('storage/packages/'.$package->image2)}}" class=" object-cover" width="130px" height="130px"  alt="">
+                    <div class="form-group">
+                        <label for="">Image</label>
+                        <input type="file" class="form-control @error('image2') is-invalid @enderror" name="image2" >
+                        @error ('image2')
+                            <div class="invalid-feedback">{{$message}}</div>
+                        @enderror
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="{{asset('storage/packages/'.$package->image3)}}" class=" object-cover" width="130px" height="130px"  alt="">
+                    <div class="form-group">
+                        <label for="">Image</label>
+                        <input type="file" class="form-control @error('image3') is-invalid @enderror" name="image3" >
+                        @error ('image3')
+                            <div class="invalid-feedback">{{$message}}</div>
+                        @enderror
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <img src="{{asset('storage/packages/'.$package->image4)}}" class=" object-cover" width="130px" height="130px"  alt="">
+                    <div class="form-group">
+                        <label for="">Image</label>
+                        <input type="file" class="form-control @error('image4') is-invalid @enderror" name="image4" >
+                        @error ('image4')
+                            <div class="invalid-feedback">{{$message}}</div>
+                        @enderror
+                    </div>
+                </div>
+            </div>
+            <img src="{{asset('storage/packages/'.$package->image5)}}" class=" object-cover" width="130px" height="130px"  alt="">
             <div class="form-group">
                 <label for="">Image</label>
-                <input type="file" class="form-control @error('image') is-invalid @enderror" name="image" >
-                @error ('image')
+                <input type="file" class="form-control @error('image5') is-invalid @enderror" name="image5" >
+                @error ('image5')
                     <div class="invalid-feedback">{{$message}}</div>
                 @enderror
             </div>

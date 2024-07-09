@@ -51,10 +51,50 @@
                     <div class="invalid-feedback">{{$message}}</div>
                 @enderror
             </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="">Image</label>
+                        <input type="file" class="form-control @error('image1') is-invalid @enderror" name="image1" >
+                        @error ('image1')
+                            <div class="invalid-feedback">{{$message}}</div>
+                        @enderror
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="">Image</label>
+                        <input type="file" class="form-control @error('image2') is-invalid @enderror" name="image2" >
+                        @error ('image2')
+                            <div class="invalid-feedback">{{$message}}</div>
+                        @enderror
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="">Image</label>
+                        <input type="file" class="form-control @error('image3') is-invalid @enderror" name="image3" >
+                        @error ('image3')
+                            <div class="invalid-feedback">{{$message}}</div>
+                        @enderror
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="">Image</label>
+                        <input type="file" class="form-control @error('image4') is-invalid @enderror" name="image4" >
+                        @error ('image4')
+                            <div class="invalid-feedback">{{$message}}</div>
+                        @enderror
+                    </div>
+                </div>
+            </div>
             <div class="form-group">
                 <label for="">Image</label>
-                <input type="file" class="form-control @error('image') is-invalid @enderror" name="image" >
-                @error ('image')
+                <input type="file" class="form-control @error('image5') is-invalid @enderror" name="image5" >
+                @error ('image5')
                     <div class="invalid-feedback">{{$message}}</div>
                 @enderror
             </div>
