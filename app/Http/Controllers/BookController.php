@@ -37,7 +37,7 @@ class BookController extends Controller
         $book->todate = $request->todate;
         $book->comment = $request->comment;
         $book->save();
-        return redirect()->route('user.dashboard');
+        return redirect()->route('user.dashboard')->with(['successmsg' => 'You are Order Successfully!']);
 
     }
 

@@ -80,7 +80,7 @@ class UserController extends Controller
             ];
             User::where('id',$id)->update($data);
             Auth::guard('web')->logout();
-            return redirect()->route('user.dashboard');
+            return redirect()->route('user.dashboard')->with(['successmsg' => 'You are Changed Password SuccessFully!']);
         }else{
            return back()->with(['doesnot' => 'You are oldpassword does not match!']);
         }

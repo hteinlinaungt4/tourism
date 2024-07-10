@@ -38,33 +38,33 @@
                     </div> --}}
                     <div class="col-md-4">
                         <div>
-                            <img src="{{ asset('storage/packages/' . $package->image1) }}" class="img-responsive" alt="">
+                            <img style="width: 100%" src="{{ asset('storage/packages/' . $package->image1) }}" class="img-responsive object-cover" alt="">
                         </div>
                         <br>
                         <div class="row">
                             <div class="col-sm-6 col-6">
-                                <div>
-                                    <img src="{{ asset('storage/packages/' . $package->image2) }}" class="img-responsive" alt="">
+                                <div style="width: 100%,height:150px;">
+                                    <img style="width: 100%;height:150px;" src="{{ asset('storage/packages/' . $package->image2) }}" class="img-responsive object-cover" alt="">
                                 </div>
                                 <br>
                             </div>
-                            <div class="col-sm-6 col-6">
-                                <div>
-                                    <img src="{{ asset('storage/packages/' . $package->image3) }}" class="img-responsive" alt="">
+                            <div class="col-6 col-sm-6">
+                                <div style="width: 100%,height:150px;">
+                                    <img style="width: 100%;height:150px;" src="{{ asset('storage/packages/' . $package->image3) }}" class="img-responsive object-cover" alt="">
                                 </div>
                                 <br>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-sm-6 col-6">
-                                <div>
-                                    <img src="{{ asset('storage/packages/' . $package->image4) }}" class="img-responsive" alt="">
+                            <div class="col-6 col-sm-6">
+                                <div style="width: 100%,height:150px;">
+                                    <img style="width: 100%;height:150px;"  src="{{ asset('storage/packages/' . $package->image4) }}" class="img-responsive object-cover" alt="">
                                 </div>
                                 <br>
                             </div>
                             <div class="col-sm-6 col-6">
-                                <div>
-                                    <img src="{{ asset('storage/packages/' . $package->image5) }}" class="img-responsive" alt="">
+                                <div style="width: 100%,height:150px;">
+                                    <img style="width: 100%;height:150px;" src="{{ asset('storage/packages/' . $package->image5) }}" class="img-responsive object-cover" alt="">
                                 </div>
                                 <br>
                             </div>
@@ -81,7 +81,7 @@
                             <div class="col-md-6">
                                 <div class="bnr-right">
                                     <label class="inputLabel">From</label>
-                                    <input class=" form-control"  type="date" placeholder="dd-mm-yyyy"
+                                    <input  class=" form-control from"  type="date" placeholder="dd-mm-yyyy"
                                         name="fromdate" required="">
                                 </div>
 
@@ -89,7 +89,7 @@
                             <div class="col-md-6">
                                 <div class="bnr-right">
                                     <label class="inputLabel">To</label>
-                                    <input class=" form-control"  type="date" placeholder="dd-mm-yyyy"
+                                    <input class=" form-control to"  type="date" placeholder="dd-mm-yyyy"
                                         name="todate" required="">
                                 </div>
                             </div>
@@ -135,8 +135,11 @@
 @endsection
 @section('script')
 <script>
-    $(function() {
-    $( "#datepicker,#datepicker1" ).datepicker();
-    });
+
+        // Get today's date in the format yyyy-mm-dd
+        const today = new Date().toISOString().split('T')[0];
+        document.querySelector('.from').setAttribute('min', today);
+        document.querySelector('.to').setAttribute('min', today);
+
 </script>
 @endsection

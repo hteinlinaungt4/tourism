@@ -42,6 +42,14 @@ function fetchPackages(page) {
     });
 }
 
+    @if (session('successmsg'))
+        Swal.fire({
+            icon: 'success',
+            title: 'Success...',
+            text: '{{ session('successmsg') }}',
+        });
+    @endif
+
 </script>
 
 @endsection
