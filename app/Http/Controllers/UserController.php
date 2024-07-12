@@ -18,7 +18,7 @@ class UserController extends Controller
 {
       //
       public function index(Request $request){
-        $package = Package::paginate(2); // 2 items per page
+        $package = Package::paginate(3); // 2 items per page
 
         if ($request->ajax()) {
             return view('user.component.package', compact('package'))->render();

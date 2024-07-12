@@ -34,6 +34,10 @@ class PackageController extends Controller
         $validation = [
             'name' => 'required|unique:packages,name',
             'packageType' => 'required',
+            'description1' => 'required',
+            'description2' => 'required',
+            'description3' => 'required',
+            'description4' => 'required',
             'location' => 'required',
             'price' => 'required',
             'features' => 'required',
@@ -44,8 +48,6 @@ class PackageController extends Controller
             'image3' => 'required|mimes:jpg,jpeg,png|file',
             'image4' => 'required|mimes:jpg,jpeg,png|file',
             'image5' => 'required|mimes:jpg,jpeg,png|file',
-
-
         ];
         Validator::make($request->all(),$validation)->validate();
 
@@ -82,6 +84,10 @@ class PackageController extends Controller
         $package->image3 = $images['image3'];
         $package->image4 = $images['image4'];
         $package->image5 = $images['image5'];
+        $package->description1 = $request->description1;
+        $package->description2 = $request->description2;
+        $package->description3 = $request->description3;
+        $package->description4 = $request->description4;
         $package->save();
 
         return redirect()->route('package.index')->with(['successmsg' => 'You are Created Successfully!']);
@@ -141,6 +147,10 @@ class PackageController extends Controller
         $package->features = $request->features;
         $package->details = $request->details;
         $package->packageType = $request->packageType;
+        $package->description1 = $request->description1;
+        $package->description2 = $request->description2;
+        $package->description3 = $request->description3;
+        $package->description4 = $request->description4;
         $package->update();
         return redirect()->route('package.index')->with(['successmsg' => 'You are Created Successfully!']);
     }

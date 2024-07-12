@@ -24,6 +24,10 @@ return new class extends Migration
             $table->string('image3');
             $table->string('image4');
             $table->string('image5');
+            $table->longText('description1');
+            $table->longText('description2');
+            $table->longText('description3');
+            $table->longText('description4');
             $table->timestamps();
         });
     }

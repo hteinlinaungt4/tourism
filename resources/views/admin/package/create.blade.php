@@ -51,21 +51,28 @@
                     <div class="invalid-feedback">{{$message}}</div>
                 @enderror
             </div>
+            <div class="form-group">
+                <label for="">Cover Photo</label>
+                <input type="file" class="form-control @error('image1') is-invalid @enderror" name="image1" >
+                @error ('image1')
+                    <div class="invalid-feedback">{{$message}}</div>
+                @enderror
+            </div>
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="">Image</label>
-                        <input type="file" class="form-control @error('image1') is-invalid @enderror" name="image1" >
-                        @error ('image1')
+                        <input type="file" class="form-control @error('image2') is-invalid @enderror" name="image2" >
+                        @error ('image2')
                             <div class="invalid-feedback">{{$message}}</div>
                         @enderror
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="">Image</label>
-                        <input type="file" class="form-control @error('image2') is-invalid @enderror" name="image2" >
-                        @error ('image2')
+                        <label for="">Description</label>
+                        <textarea name="description1" class="form-control  @error('description1') is-invalid @enderror" rows="6" placeholder="Enter description ..."></textarea>
+                        @error ('description1')
                             <div class="invalid-feedback">{{$message}}</div>
                         @enderror
                     </div>
@@ -83,6 +90,17 @@
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
+                        <label for="">Description</label>
+                        <textarea name="description2" class="form-control  @error('description2') is-invalid @enderror" rows="6" placeholder="Enter description ..."></textarea>
+                        @error ('description2')
+                            <div class="invalid-feedback">{{$message}}</div>
+                        @enderror
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
                         <label for="">Image</label>
                         <input type="file" class="form-control @error('image4') is-invalid @enderror" name="image4" >
                         @error ('image4')
@@ -90,14 +108,37 @@
                         @enderror
                     </div>
                 </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="">Description</label>
+                        <textarea name="description3" class="form-control  @error('description3') is-invalid @enderror" rows="6" placeholder="Enter description ..."></textarea>
+                        @error ('description3')
+                            <div class="invalid-feedback">{{$message}}</div>
+                        @enderror
+                    </div>
+                </div>
             </div>
-            <div class="form-group">
-                <label for="">Image</label>
-                <input type="file" class="form-control @error('image5') is-invalid @enderror" name="image5" >
-                @error ('image5')
-                    <div class="invalid-feedback">{{$message}}</div>
-                @enderror
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="">Image</label>
+                        <input type="file" class="form-control @error('image5') is-invalid @enderror" name="image5" >
+                        @error ('image5')
+                            <div class="invalid-feedback">{{$message}}</div>
+                        @enderror
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="">Description</label>
+                        <textarea name="description4" class="form-control  @error('description4') is-invalid @enderror" rows="6" placeholder="Enter description ..."></textarea>
+                        @error ('description4')
+                            <div class="invalid-feedback">{{$message}}</div>
+                        @enderror
+                    </div>
+                </div>
             </div>
+
             <button class="btn btn-primary float-right">Create</button>
         </form>
     </div>
