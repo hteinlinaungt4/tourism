@@ -39,7 +39,7 @@
         <ul class="navbar-nav bg-gradient-dark sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a href="" class="sidebar-brand d-flex align-items-center justify-content-center">
+            <a href="{{route('overallcount')}}" class="sidebar-brand d-flex align-items-center justify-content-center">
                 <div class="sidebar-brand-text mx-3">Tourism System</div>
             </a>
             <!-- Divider -->
@@ -54,8 +54,8 @@
             </div>
 
             <li class="nav-item">
-                <a class="nav-link" href="" >
-                    <i class="fa-solid fa-gauge"></i>
+                <a class="nav-link" href="{{route('overallcount')}}" >
+                    <i class="fa fa-dashboard"></i>
                     <span>Dashboard</span>
                 </a>
             </li>
@@ -93,6 +93,13 @@
                 <a class="nav-link" href="{{route('user.list')}}" >
                     <i class="fas fa-users"></i>
                     <span>Users Lists</span>
+                 </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="{{route('admin.about')}}" >
+                    <i class="fa fa-bookmark"></i>
+                    <span>About Us</span>
                  </a>
             </li>
 {{--

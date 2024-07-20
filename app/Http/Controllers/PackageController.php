@@ -33,6 +33,10 @@ class PackageController extends Controller
     {
         $validation = [
             'name' => 'required|unique:packages,name',
+            'name2' => 'required|unique:packages,name2',
+            'name3' => 'required|unique:packages,name3',
+            'name4' => 'required|unique:packages,name4',
+            'name5' => 'required|unique:packages,name5',
             'packageType' => 'required',
             'description1' => 'required',
             'description2' => 'required',
@@ -73,6 +77,10 @@ class PackageController extends Controller
         }
 
         $package->name = $request->name;
+        $package->name2 = $request->name2;
+        $package->name3 = $request->name3;
+        $package->name4 = $request->name4;
+        $package->name5 = $request->name5;
         $package->packageType = $request->packageType;
         $package->location = $request->location;
         $package->price = $request->price;
@@ -141,6 +149,12 @@ class PackageController extends Controller
         $package->image5 = $images['image5'];
 
         $package->name = $request->name;
+        $package->name1 = $request->name1;
+        $package->name2 = $request->name2;
+        $package->name3 = $request->name3;
+        $package->name4 = $request->name4;
+        $package->name5 = $request->name5;
+
         $package->packageType = $request->packageType;
         $package->location = $request->location;
         $package->price = $request->price;
@@ -192,5 +206,7 @@ class PackageController extends Controller
         $package = Package::where('id',$id)->first();
         return view('user.packagedetail',compact('package'));
     }
+
+
 
 }

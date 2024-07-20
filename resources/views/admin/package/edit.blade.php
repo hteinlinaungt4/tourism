@@ -63,6 +63,7 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
+                        <input type="text" value="{{$package->name2}}" name="name2" class="form-control my-5" placeholder="Enter Name">
                         <label for="">Image</label>
                         <input type="file" class="form-control @error('image2') is-invalid @enderror" name="image2" >
                         @error ('image2')
@@ -85,6 +86,7 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
+                        <input type="text" value="{{$package->name3}}" name="name3" class="form-control my-5" placeholder="Enter Name">
                         <label for="">Image</label>
                         <input type="file" class="form-control @error('image3') is-invalid @enderror" name="image3" >
                         @error ('image3')
@@ -106,6 +108,7 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
+                        <input type="text" value="{{$package->name3}}" name="name3" class="form-control my-5" placeholder="Enter Name">
                         <label for="">Image</label>
                         <input type="file" class="form-control @error('image4') is-invalid @enderror" name="image4" >
                         @error ('image4')
@@ -127,6 +130,7 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
+                        <input type="text" value="{{$package->name4}}" name="name4" class="form-control my-5" placeholder="Enter Name">
                         <label for="">Image</label>
                         <input type="file" class="form-control @error('image5') is-invalid @enderror" name="image5" >
                         @error ('image5')

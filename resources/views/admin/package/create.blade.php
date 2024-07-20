@@ -66,6 +66,7 @@
                         @error ('image2')
                             <div class="invalid-feedback">{{$message}}</div>
                         @enderror
+                        <input type="text" name="name2" class="form-control my-5" placeholder="Enter Name">
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -86,6 +87,7 @@
                         @error ('image3')
                             <div class="invalid-feedback">{{$message}}</div>
                         @enderror
+                        <input type="text" name="name3" class="form-control my-5" placeholder="Enter Name">
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -106,6 +108,7 @@
                         @error ('image4')
                             <div class="invalid-feedback">{{$message}}</div>
                         @enderror
+                        <input type="text" name="name4" class="form-control my-5" placeholder="Enter Name">
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -126,6 +129,7 @@
                         @error ('image5')
                             <div class="invalid-feedback">{{$message}}</div>
                         @enderror
+                        <input type="text" name="name5" class="form-control my-5" placeholder="Enter Name">
                     </div>
                 </div>
                 <div class="col-md-6">

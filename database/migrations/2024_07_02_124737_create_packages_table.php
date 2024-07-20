@@ -14,6 +14,10 @@ return new class extends Migration
         Schema::create('packages', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('name2');
+            $table->string('name3');
+            $table->string('name4');
+            $table->string('name5');
             $table->string('packageType');
             $table->string('location');
             $table->decimal('price');

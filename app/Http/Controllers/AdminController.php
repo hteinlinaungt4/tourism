@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Book;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
 use App\Http\Controllers\Controller;
+use App\Models\Package;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -42,14 +44,20 @@ class AdminController extends Controller
     }
 
     public function overallcount(){
-
-        return view('admin.total');
+        $user = User::all()->count();
+        $book = Book::all()->count();
+        $package = Package::all()->count();
+        return view('admin.total',compact('user','book','package'));
     }
 
     public function index(){
-
-        return view('admin.dashboard');
+        $user = User::all()->count();
+        $book = Book::all()->count();
+        $package = Package::all()->count();
+        return view('admin.total',compact('user','book','package'));
     }
+
+
 
 
 

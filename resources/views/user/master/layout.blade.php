@@ -27,6 +27,9 @@
             align-items: center;    /* Centers vertically */
             min-height: 77vh;
         }
+        .title{
+            margin-top: 100px;
+        }
         .dropdown-menu {
             background-color: green;
             z-index: 9999 !important;
@@ -93,11 +96,11 @@
                                                 class="fa fa-user-circle" aria-hidden="true"></i> Login
                                         </a>
                                     </li>
-                                    <li> <a href="{{ route('register') }}" aria-haspopup="true"
+                                    {{-- <li> <a href="{{ route('register') }}" aria-haspopup="true"
                                             aria-expanded="false"><i class="fa fa-user-circle" aria-hidden="true"></i>
                                             Register
                                         </a>
-                                    </li>
+                                    </li> --}}
                                 @else
                                     <li class="dropdown"> <a href="#" data-toggle="dropdown" aria-haspopup="true"
                                             aria-expanded="false"><i class="fa fa-user-circle" aria-hidden="true"></i>
@@ -105,6 +108,8 @@
                                             <i class="fa fa-angle-down" aria-hidden="true"></i></a>
                                         <ul class="dropdown-menu" style="z-index: 9999!important;">
                                             <li><a href="{{route('userpassword#changepage')}}">Update Password</a></li>
+                                            <li><a href=" {{route('fav')}}">My Favourite Lists</a></li>
+                                            <li><a href=" {{route('mybook')}}">My Booking Lists</a></li>
                                             <li>
                                                 <form method="POST" action="{{ route('logout') }}">
                                                     @csrf

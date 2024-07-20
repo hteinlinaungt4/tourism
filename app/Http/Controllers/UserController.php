@@ -9,6 +9,7 @@ use Illuminate\Log\Logger;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
 use App\Http\Controllers\Controller;
+use App\Models\About;
 use Illuminate\Foundation\Auth\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -17,22 +18,35 @@ use Illuminate\Support\Facades\Validator;
 class UserController extends Controller
 {
       //
-      public function index(Request $request){
-        $package = Package::paginate(3); // 2 items per page
+    //   public function index(Request $request){
+    //     $package = Package::paginate(3); // 2 items per page
 
-        if ($request->ajax()) {
-            return view('user.component.package', compact('package'))->render();
-        }
+    //     if ($request->ajax()) {
+    //         return view('user.component.package', compact('package'))->render();
+    //     }
 
-        return view('user.dashboard', compact('package'));
+    //     return view('user.dashboard', compact('package'));
+    // }
+    public function index(Request $request)
+{
+    $packages = Package::paginate(3); // 3 items per page
+    $user = Auth::user();
+    $favPackages = [];
+
+    if ($user) {
+        $favPackages = $user->packages->pluck('id')->toArray();
     }
 
+    if ($request->ajax()) {
+        return view('user.component.package', compact('packages', 'favPackages'))->render();
+    }
 
-    // public function detail($id){
-    //     $vehicle=Vehicle::findorFail($id);
-    //     $vehicles=Vehicle::paginate(3);
-    //     return view('user.detail',compact('vehicle','vehicles'));
-    // }
+    return view('user.dashboard', compact('packages', 'favPackages'));
+}
+
+
+
+
 
     public function myprofile(){
         return view('user.myprofile',);
@@ -61,7 +75,8 @@ class UserController extends Controller
     }
 
     public function about(){
-        return view('user.about');
+        $about = About::find(1);
+        return view('user.about',compact('about'));
     }
 
 
@@ -113,5 +128,43 @@ class UserController extends Controller
             'comfirmpassword' => 'required|min:6|max:10|same:newpassword'
         ];
         Validator::make($request->all(),$validation)->validate();
+    }
+
+
+    public function favremove($id)
+    {
+        $user = Auth::user();
+        $package = Package::findOrFail($id);
+        if ($user->packages()->where('package_id', $id)->exists()) {
+            $user->packages()->detach($id);
+            $data = [
+                'msg' => 'success',
+            ];
+            return response()->json($data, 200);
+        }
+        $data = [
+            'msg' => 'Fail',
+        ];
+        return response()->json($data, 400);
+    }
+
+    public function addfav($id)
+    {
+        $package=Package::findorFail($id);
+        $user = Auth::user();
+        if (!$user->packages()->where('package_id', $package->id)->exists()) {
+            $user->packages()->attach($package);
+        }
+        $data=[
+            'msg' => 'Success',
+        ];
+        return response()->json($data, 200);
+    }
+
+    public function fav()
+    {
+        $user = Auth::user();
+        $fav = $user->packages;
+        return view('user.fav', compact('fav'));
     }
 }

@@ -4,7 +4,7 @@
 @section('content')
     <div>
         <div class="container-fluid ">
-            <h1 class="text-center" style="margin-top:100px">Detail</h1>
+            <h1 class="text-center" style="margin-top:100px">Package Detail</h1>
         </div>
     </div>
     <!--- /banner ---->
@@ -38,7 +38,7 @@
                     <div class="row box wow fadeInRight animated" data-wow-delay=".5s" style="margin: 30px 0;padding:20px">
                         <div class="col-md-8" style="padding:0 20px;">
                             <div>
-                                <h1>Description</h1>
+                                <h1>{{ $package->name2 }}</h1>
                                 <h3 style="margin: 20px 0;">{{ $package->description1 }}</h3>
                             </div>
                         </div>
@@ -61,7 +61,7 @@
                         </div>
                         <div class="col-md-8" style="padding:0 20px;">
                             <div>
-                                <h1>Description</h1>
+                                <h1>{{ $package->name3 }}</h1>
                                 <h3 style="margin: 20px 0;">{{ $package->description2 }}</h3>
                             </div>
                         </div>
@@ -69,7 +69,7 @@
                     <div class="row box wow fadeInRight animated" data-wow-delay=".5s" style="margin: 30px 0;padding:20px">
                         <div class="col-md-8">
                             <div>
-                                <h1>Description</h1>
+                                <h1>{{ $package->name4 }}</h1>
                                 <h3 style="margin: 20px 0;">{{ $package->description3 }}</h3>
                             </div>
                         </div>
@@ -91,7 +91,7 @@
                         </div>
                         <div class="col-md-8">
                             <div>
-                                <h1>Description</h1>
+                                <h1>{{ $package->name5 }}</h1>
                                 <h3 style="margin: 20px 0;">{{ $package->description4 }}</h3>
                             </div>
                         </div>
@@ -140,7 +140,7 @@
                         data-wow-delay="500ms"
                         style="visibility: visible; animation-duration: 1200ms; animation-delay: 500ms; animation-name: fadeInUp; margin-top: -70px">
                         <ul>
-
+                            <input type="hidden" name="package_id" value="{{$package->id}}">
                             <li class="spe">
                                 <label class="inputLabel">Comment</label>
                                 <input class="special" type="text" name="comment" required="">
