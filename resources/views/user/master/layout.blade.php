@@ -21,6 +21,22 @@
     <script src="{{ asset('user/js/wow.min.js') }}"></script>
     <script src="{{ asset('user/js/jquery-ui.js') }}"></script>
     <style>
+
+.rowgg {
+            display: flex;
+            align-items: center;
+        }
+
+        .centered-image {
+            object-fit: cover;
+            border-radius: 50px;
+        }
+
+        .content {
+            padding: 50px;
+            display: flex;
+            align-items: center;
+        }
         .centered-div {
             display: flex;
             justify-content: center; /* Centers horizontally */
@@ -88,6 +104,7 @@
                         <nav class="cl-effect-1 ">
                             <ul class="nav navbar-nav">
                                 <li><a href="{{ route('user.dashboard') }}">Home</a></li>
+                                <li><a href="{{route('packageslists')}}">Packages</a></li>
                                 <li><a href="{{ route('about') }}">About</a></li>
                                 <li><a href="{{ route('enquiry') }}">Enquiry</a></li>
                                 <li><a href="{{ route('contact') }}">Contact</a></li>

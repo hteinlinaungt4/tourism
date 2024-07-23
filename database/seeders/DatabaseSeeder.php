@@ -7,6 +7,7 @@ namespace Database\Seeders;
 use App\Models\User;
 use App\Models\About;
 use App\Models\Contact;
+use App\Models\Context;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 
@@ -39,6 +40,10 @@ class DatabaseSeeder extends Seeder
             'address' => 'Taunggyi(Shan State)',
             'email' => 'example.com',
             'phone' => '09xxxxxxx',
+        ]);
+        Context::create([
+            'description' => 'In this serene locale, the sun’s warmth and a gentle breeze create a perfect atmosphere. Nestled among lush greenery and crystal-clear lakes, with majestic mountains as a backdrop, the weather is always pleasant. This tranquil haven invites you to relax and reflect, offering an idyllic escape from the stresses of daily life.',
+            'description1' => 'Discover a tranquil paradise where the sun warms the lush landscape, and a gentle breeze carries the scent of flowers. With crystal-clear lakes, majestic mountains, and perpetually pleasant weather, this serene retreat offers the perfect escape. Enjoy leisurely strolls and moments of reflection, surrounded by natural beauty and tranquility, far from the hustle and bustle of everyday life.'
         ]);
     }
 }

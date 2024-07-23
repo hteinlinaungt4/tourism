@@ -1,7 +1,7 @@
 @foreach ($packages as $p)
     <div class="rom-btm">
-        <div class="col-md-3 room-left wow fadeInLeft animated" data-wow-delay=".5s">
-            <img src="{{ asset('storage/packages/' . $p->image1) }}" class="img-responsive" alt="">
+        <div style="width:200px;height:200px;padding:20px;" class="col-md-3 room-left wow fadeInLeft animated" data-wow-delay=".5s">
+            <img style="width: 100%;height:100%;" src="{{ asset('storage/packages/' . $p->image1) }}" class="img-responsive object-cover" alt="">
         </div>
         <div class="col-md-6 room-midle wow fadeInUp animated" data-wow-delay=".5s">
             @if (Auth::check())

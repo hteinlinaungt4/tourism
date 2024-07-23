@@ -102,6 +102,19 @@
                     <span>About Us</span>
                  </a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{route('admin.contact')}}" >
+                    <i class="fa fa-bookmark"></i>
+                    <span>Contact Us</span>
+                 </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="{{route('admin.context')}}" >
+                    <i class="fa fa-bookmark"></i>
+                    <span>Context Manage</span>
+                 </a>
+            </li>
 {{--
             <li class="nav-item">
                 <a class="nav-link" href="" >

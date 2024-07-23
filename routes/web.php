@@ -7,6 +7,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\ContextController;
 use App\Http\Controllers\EnquiryController;
 use App\Http\Controllers\PackageController;
 
@@ -56,6 +57,9 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])
          Route::get('admin/contact',[ContactController::class,'index'])->name('admin.contact');
          Route::get('contact/{id}',[ContactController::class,'update'])->name('admin.contact.update');
 
+         Route::get('admin/context',[ContextController::class,'index'])->name('admin.context');
+         Route::get('context/{id}',[ContextController::class,'update'])->name('admin.context.update');
+
 
         //password
         Route::prefix('adminpassword')->group(function(){
@@ -91,6 +95,7 @@ Route::get('enquiry',[EnquiryController::class,'index'])->name('enquiry');
 Route::post('enquiry',[EnquiryController::class,'store'])->name('enquiry.store');
 Route::get('about',[UserController::class,'about'])->name('about');
 Route::get('contact',[UserController::class,'contact'])->name('contact');
+Route::get('packageslists',[PackageController::class,'packages'])->name('packageslists');
 
 
 

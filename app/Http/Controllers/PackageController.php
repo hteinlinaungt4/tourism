@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Package;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
@@ -56,9 +57,6 @@ class PackageController extends Controller
         Validator::make($request->all(),$validation)->validate();
 
         $package = new Package();
-
-
-
         $images = [];
         for ($i = 1; $i <= 5; $i++) {
             if ($request->hasFile('image' . $i)) {
@@ -205,6 +203,23 @@ class PackageController extends Controller
     public function detail($id){
         $package = Package::where('id',$id)->first();
         return view('user.packagedetail',compact('package'));
+    }
+
+
+    public function packages(Request $request){
+        $packages = Package::paginate(4); // 3 items per page
+        $user = Auth::user();
+        $favPackages = [];
+
+        if ($user) {
+            $favPackages = $user->packages->pluck('id')->toArray();
+        }
+
+        if ($request->ajax()) {
+            return view('user.component.package', compact('packages', 'favPackages'))->render();
+        }
+
+        return view('user.package', compact('packages', 'favPackages'));
     }
 
 

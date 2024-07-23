@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 
 use Log;
 use App\Models\Book;
+use App\Models\About;
+use App\Models\Contact;
+use App\Models\Context;
 use App\Models\Package;
 use Illuminate\Log\Logger;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
 use App\Http\Controllers\Controller;
-use App\Models\About;
 use Illuminate\Foundation\Auth\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -17,7 +19,7 @@ use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
 {
-      //
+    //
     //   public function index(Request $request){
     //     $package = Package::paginate(3); // 2 items per page
 
@@ -27,109 +29,96 @@ class UserController extends Controller
 
     //     return view('user.dashboard', compact('package'));
     // }
-    public function index(Request $request)
-{
-    $packages = Package::paginate(3); // 3 items per page
-    $user = Auth::user();
-    $favPackages = [];
-
-    if ($user) {
-        $favPackages = $user->packages->pluck('id')->toArray();
+    public function index()
+    {
+        $context = Context::find(1);
+        return view('user.dashboard',compact('context'));
     }
 
-    if ($request->ajax()) {
-        return view('user.component.package', compact('packages', 'favPackages'))->render();
+    public function myprofile()
+    {
+        return view('user.myprofile');
     }
 
-    return view('user.dashboard', compact('packages', 'favPackages'));
-}
-
-
-
-
-
-    public function myprofile(){
-        return view('user.myprofile',);
+    public function book($id)
+    {
+        $books = Book::where('user_id', $id)->with('user', 'package')->get();
+        return view('admin.userbook.index', compact('books'));
     }
 
-    public function book($id){
-       $books=Book::where('user_id',$id)->with('user','package')->get();
-       return view('admin.userbook.index',compact('books'));
+    public function userlist()
+    {
+        $users = User::where('role', 'user')->get();
+        return view('admin.userlist.userlist', compact('users'));
     }
 
-
-    public function userlist(){
-        $users = User::where('role','user')->get();
-        return view('admin.userlist.userlist',compact('users'));
+    public function contact()
+    {
+        $contact = Contact::find(1);
+        return view('user.contact',compact('contact'));
     }
 
 
 
-
-
-
-
-
-    public function contact(){
-        return view('user.contact');
-    }
-
-    public function about(){
+    public function about()
+    {
         $about = About::find(1);
-        return view('user.about',compact('about'));
+        return view('user.about', compact('about'));
     }
 
-
-    function changepasswordpage(){
+    function changepasswordpage()
+    {
         return view('user.updatepassword');
     }
     // ChangePassword
-    function changepassword(Request $request){
+    function changepassword(Request $request)
+    {
         $this->ValidationCheck($request);
-        $id=Auth::user()->id;
-        $oldpassword=User::select('password')->where('id',$id)->first();
-        $oldpassword=$oldpassword->password;
-        if(Hash::check($request->oldpassword,$oldpassword)){
-            $data=[
-                'password' => Hash::make( $request->newpassword),
+        $id = Auth::user()->id;
+        $oldpassword = User::select('password')->where('id', $id)->first();
+        $oldpassword = $oldpassword->password;
+        if (Hash::check($request->oldpassword, $oldpassword)) {
+            $data = [
+                'password' => Hash::make($request->newpassword),
             ];
-            User::where('id',$id)->update($data);
+            User::where('id', $id)->update($data);
             Auth::guard('web')->logout();
-            return redirect()->route('user.dashboard')->with(['successmsg' => 'You are Changed Password SuccessFully!']);
-        }else{
-           return back()->with(['doesnot' => 'You are oldpassword does not match!']);
+            return redirect()
+                ->route('user.dashboard')
+                ->with(['successmsg' => 'You are Changed Password SuccessFully!']);
+        } else {
+            return back()->with(['doesnot' => 'You are oldpassword does not match!']);
         }
     }
 
-    function updatemyprofile(Request $request){
-        $id=Auth::user()->id;
-        $updateData=$this->getData($request);
-        User::where('id',$id)->update($updateData);
+    function updatemyprofile(Request $request)
+    {
+        $id = Auth::user()->id;
+        $updateData = $this->getData($request);
+        User::where('id', $id)->update($updateData);
         return redirect()->route('user.dashboard');
     }
 
-    private function getData($request){
-        $data=[
+    private function getData($request)
+    {
+        $data = [
             'name' => $request->name,
-            'email'=> $request->email,
-            'phone'=> $request->phone,
-            'address'=> $request->address,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'address' => $request->address,
         ];
         return $data;
-
     }
 
-
-
-    private function ValidationCheck($request){
-        $validation=[
+    private function ValidationCheck($request)
+    {
+        $validation = [
             'oldpassword' => 'required|min:6|max:10',
-            'newpassword'=> 'required|min:6|max:10',
-            'comfirmpassword' => 'required|min:6|max:10|same:newpassword'
+            'newpassword' => 'required|min:6|max:10',
+            'comfirmpassword' => 'required|min:6|max:10|same:newpassword',
         ];
-        Validator::make($request->all(),$validation)->validate();
+        Validator::make($request->all(), $validation)->validate();
     }
-
 
     public function favremove($id)
     {
@@ -150,12 +139,17 @@ class UserController extends Controller
 
     public function addfav($id)
     {
-        $package=Package::findorFail($id);
+        $package = Package::findorFail($id);
         $user = Auth::user();
-        if (!$user->packages()->where('package_id', $package->id)->exists()) {
+        if (
+            !$user
+                ->packages()
+                ->where('package_id', $package->id)
+                ->exists()
+        ) {
             $user->packages()->attach($package);
         }
-        $data=[
+        $data = [
             'msg' => 'Success',
         ];
         return response()->json($data, 200);
