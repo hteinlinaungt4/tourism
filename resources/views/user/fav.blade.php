@@ -13,7 +13,6 @@
                             </a>
                         </div>
                     <div class="col-md-6 room-midle wow fadeInUp animated" data-wow-delay=".5s">
-
                         <h4>Package Name: {{ $p->name }}</h4>
                         <h6>Package Type : {{ $p->packageType }}</h6>
                         <p><b>Package Location :</b> {{ $p->location }}</p>

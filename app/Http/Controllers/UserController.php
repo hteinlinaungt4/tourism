@@ -143,11 +143,11 @@ class UserController extends Controller
         $user = Auth::user();
         if (
             !$user
-                ->packages()
+                ->packages
                 ->where('package_id', $package->id)
                 ->exists()
         ) {
-            $user->packages()->attach($package);
+            $user->packages->attach($package);
         }
         $data = [
             'msg' => 'Success',

@@ -12,7 +12,7 @@
             <h3 style="margin-bottom: 50px;">Climate</h3>
             <div class="row rowgg content">
                 <div class="col-md-6" style="padding: 20px;">
-                    <p>
+                    <p style="text-indent: 2em;">
                         {{$context->description}}
                     </p>
                 </div>
@@ -37,7 +37,7 @@
                         alt="">
                 </div>
                 <div class="col-md-6" style="padding: 20px;">
-                    <p>
+                    <p style="text-indent: 2em;">
                         {{$context->description1}}
                     </p>
                 </div>

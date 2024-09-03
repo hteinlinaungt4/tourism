@@ -79,7 +79,8 @@
     <div class="header">
         <div class="container ">
             <div class="logo wow fadeInDown animated" data-wow-delay=".5s">
-                <a href="{{ route('user.dashboard') }}">Tourism <span>Management System</span></a>
+                {{-- <a href="{{ route('user.dashboard') }}">Tourism <span>Management System</span></a> --}}
+                <a href="{{ route('user.dashboard') }}"><img src="{{asset('logo/logo.png')}}" style="width: 70px" alt=""></a>
             </div>
         </div>
     </div>
