@@ -9,10 +9,10 @@
 
     <div class="container mb-3">
         <div class="holiday">
-            <h3 style="margin-bottom: 50px;">Climate</h3>
+            <h3 style="margin-bottom: 10px;">Climate</h3>
             <div class="row rowgg content">
                 <div class="col-md-6" style="padding: 20px;">
-                    <p style="text-indent: 2em;">
+                    <p class="text-justify">
                         {{$context->description}}
                     </p>
                 </div>
@@ -29,7 +29,7 @@
 
     <div class="container mb-3">
         <div class="holiday">
-            <h3 style="margin-bottom: 50px;">Situation</h3>
+            <h3 style="margin-bottom: 10px;">Situation</h3>
             <div class="row rowgg content">
                 <div class="col-md-6 text-center">
                     <img class="centered-image" width="400" height="300"
@@ -37,7 +37,7 @@
                         alt="">
                 </div>
                 <div class="col-md-6" style="padding: 20px;">
-                    <p style="text-indent: 2em;">
+                    <p class=" text-justify">
                         {{$context->description1}}
                     </p>
                 </div>

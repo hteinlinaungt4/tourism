@@ -39,7 +39,7 @@
                         <div class="col-md-8" style="padding:0 20px;">
                             <div>
                                 <h1>{{ $package->name2 }}</h1>
-                                <h3 style="margin: 20px 0;">{{ $package->description1 }}</h3>
+                                <h3 style="margin: 20px 0;" class=" text-justify">{{ $package->description1 }}</h3>
                             </div>
                         </div>
                         <div class="col-md-4">
@@ -62,7 +62,7 @@
                         <div class="col-md-8" style="padding:0 20px;">
                             <div>
                                 <h1>{{ $package->name3 }}</h1>
-                                <h3 style="margin: 20px 0;">{{ $package->description2 }}</h3>
+                                <h3 style="margin: 20px 0;" class=" text-justify">{{ $package->description2 }}</h3>
                             </div>
                         </div>
                     </div>
@@ -70,7 +70,7 @@
                         <div class="col-md-8">
                             <div>
                                 <h1>{{ $package->name4 }}</h1>
-                                <h3 style="margin: 20px 0;">{{ $package->description3 }}</h3>
+                                <h3 style="margin: 20px 0;" class=" text-justify">{{ $package->description3 }}</h3>
                             </div>
                         </div>
                         <div class="col-md-4">
@@ -92,7 +92,7 @@
                         <div class="col-md-8">
                             <div>
                                 <h1>{{ $package->name5 }}</h1>
-                                <h3 style="margin: 20px 0;">{{ $package->description4 }}</h3>
+                                <h3 style="margin: 20px 0;" class=" text-justify">{{ $package->description4 }}</h3>
                             </div>
                         </div>
                     </div>
@@ -124,7 +124,7 @@
                                 <h3>{{ $package->price }} MMK</h3>
                             </div>
                             <h3>Package Details</h3>
-                            <p style="padding-top: 2%">{{ $package->details }}</p>
+                            <p style="padding-top: 2%" class=" text-justify">{{ $package->details }}</p>
                         </div>
                     </div>
 

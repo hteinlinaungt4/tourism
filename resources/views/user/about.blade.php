@@ -16,7 +16,7 @@
         </h3>
 
 
-	<p>
+	<p class=" text-justify">
         {{$about->description}}
 	</p>
 

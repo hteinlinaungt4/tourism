@@ -79,8 +79,7 @@
     <div class="header">
         <div class="container ">
             <div class="logo wow fadeInDown animated" data-wow-delay=".5s">
-                {{-- <a href="{{ route('user.dashboard') }}">Tourism <span>Management System</span></a> --}}
-                <a href="{{ route('user.dashboard') }}"><img src="{{asset('logo/logo.png')}}" style="width: 70px" alt=""></a>
+                <a href="{{ route('user.dashboard') }}">Journey Joy <span>Tourism Management System</span></a>
             </div>
         </div>
     </div>
@@ -107,7 +106,7 @@
                                 <li><a href="{{ route('user.dashboard') }}">Home</a></li>
                                 <li><a href="{{route('packageslists')}}">Packages</a></li>
                                 <li><a href="{{ route('about') }}">About</a></li>
-                                <li><a href="{{ route('enquiry') }}">Enquiry</a></li>
+                                {{-- <li><a href="{{ route('enquiry') }}">Enquiry</a></li> --}}
                                 <li><a href="{{ route('contact') }}">Contact</a></li>
                                 @if (!Auth::check())
                                     <li> <a href="{{ route('login') }}" aria-haspopup="true" aria-expanded="false"><i

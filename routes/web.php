@@ -91,8 +91,8 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])
 
 // public
 Route::get('user/dashboard',[UserController::class,'index'])->name('user.dashboard');
-Route::get('enquiry',[EnquiryController::class,'index'])->name('enquiry');
-Route::post('enquiry',[EnquiryController::class,'store'])->name('enquiry.store');
+// Route::get('enquiry',[EnquiryController::class,'index'])->name('enquiry');
+// Route::post('enquiry',[EnquiryController::class,'store'])->name('enquiry.store');
 Route::get('about',[UserController::class,'about'])->name('about');
 Route::get('contact',[UserController::class,'contact'])->name('contact');
 Route::get('packageslists',[PackageController::class,'packages'])->name('packageslists');
