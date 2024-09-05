@@ -147,7 +147,6 @@ class PackageController extends Controller
         $package->image5 = $images['image5'];
 
         $package->name = $request->name;
-        $package->name1 = $request->name1;
         $package->name2 = $request->name2;
         $package->name3 = $request->name3;
         $package->name4 = $request->name4;

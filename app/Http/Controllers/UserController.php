@@ -32,7 +32,7 @@ class UserController extends Controller
     public function index()
     {
         $context = Context::find(1);
-        return view('user.dashboard',compact('context'));
+        return view('user.dashboard', compact('context'));
     }
 
     public function myprofile()
@@ -55,7 +55,7 @@ class UserController extends Controller
     public function contact()
     {
         $contact = Contact::find(1);
-        return view('user.contact',compact('contact'));
+        return view('user.contact', compact('contact'));
     }
 
 
@@ -139,16 +139,13 @@ class UserController extends Controller
 
     public function addfav($id)
     {
-        $package = Package::findorFail($id);
+        $package = Package::findOrFail($id);
         $user = Auth::user();
-        if (
-            !$user
-                ->packages
-                ->where('package_id', $package->id)
-                ->exists()
-        ) {
-            $user->packages->attach($package);
+
+        if (!$user->packages()->where('package_id', $package->id)->exists()) {
+            $user->packages()->attach($package->id);
         }
+
         $data = [
             'msg' => 'Success',
         ];
